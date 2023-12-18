@@ -18,19 +18,15 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active"
 					href="product/list">All product</a></li>
-				<li class="nav-item"><a class="nav-link" href="product/add">Add
-						new product</a></li>
-				<li class="nav-item"><a class="nav-link" href="category/list">All
-						Category</a></li>
-				<li class="nav-item"><a class="nav-link" href="category/add">Add
-						new Category</a></li>
+				<li class="nav-item"><a class="nav-link" href="product/add">Add new product</a></li>
+				<li class="nav-item"><a class="nav-link" href="category/list">All Category</a></li>
+				<li class="nav-item"><a class="nav-link" href="category/add">Add new Category</a></li>
 				<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="welcome">Welcome</a></li>
 				<li class="nav-item"><a class="nav-link" href="profile">Profile</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="redirect/no-param">redirect no param</a></li>
-				<li class="nav-item"><a class="nav-link" href="redirect/param">redirect
-						has param</a></li>
+				<li class="nav-item"><a class="nav-link" href="redirect/no-param">redirect no param</a></li>
+				<li class="nav-item"><a class="nav-link" href="redirect/param">redirect has param</a></li>
+				<li class="nav-item"><a class="nav-link" href="chart/product">Product Chart</a></li>
 			</ul>
 		</div>
 	</nav>

@@ -2,15 +2,10 @@ package thuan.com.fa.demomvc.page;
 
 public class PageAble {
 	private int page;
-	private int size = 5;
+	private int size = 2;
 
 	public PageAble(int page) {
-		super();
 		this.page = page;
-	}
-
-	public int getOffset() {
-		return (page - 1) * size;
 	}
 
 	public int getPage() {

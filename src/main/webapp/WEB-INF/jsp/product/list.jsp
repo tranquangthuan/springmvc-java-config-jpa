@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-3.6.4.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <style>
@@ -65,13 +66,14 @@ td {
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
-					<th width="10%">Id</th>
-					<th width="20%">Name</th>
-					<th width="10%">Quantity</th>
-					<th width="20%">Ngay San Xuat</th>
-					<th width="20%">Gio San Xuat</th>
-					<th width="20%">Category</th>
-					<th width="20%">Action</th>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Ngay San Xuat</th>
+					<th>Gio San Xuat</th>
+					<th>Category</th>
+					<th>Serial</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -83,6 +85,7 @@ td {
 						<td>${product.ngaySanXuat}</td>
 						<td>${product.gioSanXuat}</td>
 						<td>${product.category.name}</td>
+						<td>${product.serial}</td>
 						<td><a href="delete?id=${product.id}">Delete</a> <a
 							href="update/${product.id}">Update</a></td>
 					</tr>

@@ -20,6 +20,9 @@ public class CategoryServiceImpl {
 
 	public List<Category> findAll() {
 		long total = categoryRepositoryImpl.count();
+		if (total == 0) {
+			total = 1;
+		}
 		List<Category> content = categoryRepositoryImpl.findAll(PageRequest.of(0, (int) total)).getContent();
 		return content;
 	}

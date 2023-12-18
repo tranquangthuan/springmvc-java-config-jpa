@@ -48,8 +48,8 @@ public class MVCconfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 //		registry.addInterceptor(new PerformanceInterceptor());
-		registry.addInterceptor(new PerformanceInterceptor())
-				.excludePathPatterns(List.of("/", "/index", "/static/**", "/resources/**", "/js/**"));
+//		registry.addInterceptor(new PerformanceInterceptor())
+//				.excludePathPatterns(List.of("/", "/index", "/static/**", "/resources/**", "/js/**"));
 	}
 
 }

@@ -26,8 +26,8 @@ public class CategoryController {
 	private CategoryServiceImpl categoryServiceImpl;
 
 	@GetMapping("/list")
-	public String getAllCategoryWithPageAble(Model model, @RequestParam(defaultValue = "0") Integer page) {
-		PageAble pageAble = new PageAble(page);
+	public String getAllCategoryWithPageAble(Model model, @RequestParam(defaultValue = "1") Integer page) {
+		PageAble pageAble = new PageAble(page - 1);
 		Page<Category> categories = categoryServiceImpl.findWithPageAble(pageAble);
 		model.addAttribute("categories", categories.getContent());
 		model.addAttribute("totalPages", categories.getTotalPages());

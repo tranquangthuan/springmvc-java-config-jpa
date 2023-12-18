@@ -20,6 +20,9 @@ public class ProductServiceImpl {
 
 	public List<Product> findAll() {
 		long total = productRepository.count();
+		if (total == 0) {
+			total = 1;
+		}
 		List<Product> content = productRepository.findAll(PageRequest.of(0, (int) total)).getContent();
 		return content;
 	}
@@ -46,12 +49,11 @@ public class ProductServiceImpl {
 	}
 
 	public List<Product> search(String searchKey) {
-		// return productRepository.search(searchKey);
-		return null;
+		return productRepository.search(searchKey);
 	}
 
 	public boolean existSerial(String serial) {
-		// return productRepository.existSerial(serial);
-		return false;
+		List<Product> findBySerial = productRepository.findBySerial(serial);
+		return (findBySerial != null && findBySerial.size() > 0);
 	}
 }

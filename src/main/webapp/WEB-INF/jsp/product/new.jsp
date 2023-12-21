@@ -12,7 +12,10 @@
 	<div align="center">
 		<a href="${pageContext.request.contextPath}">Home</a>
 		<form:form action="${pageContext.request.contextPath}/product/save"
-			method="post" modelAttribute="productForm">
+			method="POST" modelAttribute="productForm"
+			enctype="multipart/form-data">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 			<table>
 				<tr>
 					<td><form:label path="name">Name</form:label></td>
@@ -44,6 +47,10 @@
 					<td><form:label path="serial">serial</form:label></td>
 					<td><form:input path="serial" /></td>
 					<td><form:errors path="serial" /></td>
+				</tr>
+				<tr>
+					<td><label>fileImage</label></td>
+					<td><input type="file" id="fileImage" name="fileImage" /></td>
 				</tr>
 				<tr>
 					<td></td>

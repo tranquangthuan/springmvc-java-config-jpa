@@ -1,5 +1,6 @@
 package thuan.com.fa.demomvc.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,11 +16,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import thuan.com.fa.demomvc.entity.Category;
 import thuan.com.fa.demomvc.entity.Product;
 import thuan.com.fa.demomvc.page.PageAble;
 import thuan.com.fa.demomvc.service.CategoryServiceImpl;
+import thuan.com.fa.demomvc.service.FilleUtils;
 import thuan.com.fa.demomvc.service.ProductServiceImpl;
 
 @Controller
@@ -39,6 +42,7 @@ public class ProductController {
 		model.addAttribute("products", products.getContent());
 		model.addAttribute("totalPages", products.getTotalPages());
 		model.addAttribute("currentPage", page);
+		model.addAttribute("pathFile", FilleUtils.PATH_FILE);
 
 		return "/product/list";
 	}
@@ -49,11 +53,21 @@ public class ProductController {
 		return "/product/new";
 	}
 
-	@PostMapping("/save")
-	public String addNewProduct(@ModelAttribute(name = "productForm") @Valid Product product, BindingResult result) {
+	@PostMapping(value = "/save", consumes = { "multipart/form-data" })
+	public String addNewProduct(@ModelAttribute(name = "productForm") @Valid Product product, BindingResult result,
+			@RequestParam(value = "fileImage", required = false) MultipartFile file) {
 		if (result.hasErrors()) {
 			return "/product/new";
 		}
+		String fileName = "";
+		try {
+			fileName = FilleUtils.saveFile(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		product.setFileName(fileName);
 		productServiceImpl.saveOrUpdate(product);
 		return "redirect:/product/list";
 	}

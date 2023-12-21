@@ -33,6 +33,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		// @formatter:off
 		http.addFilterBefore(new EncodingFilter(), ChannelProcessingFilter.class);
 		http
+			.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/", "/index", "/static/**", "/resources/**", "/js/**")
 			.permitAll()

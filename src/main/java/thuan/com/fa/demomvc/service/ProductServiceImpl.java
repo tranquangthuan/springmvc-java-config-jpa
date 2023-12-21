@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import thuan.com.fa.demomvc.entity.Product;
@@ -23,7 +24,8 @@ public class ProductServiceImpl {
 		if (total == 0) {
 			total = 1;
 		}
-		List<Product> content = productRepository.findAll(PageRequest.of(0, (int) total)).getContent();
+		PageRequest pageRequest = PageRequest.of(0, (int) total);
+		List<Product> content = productRepository.findAll(pageRequest).getContent();
 		return content;
 	}
 
@@ -43,7 +45,8 @@ public class ProductServiceImpl {
 	}
 
 	public Page<Product> findWithPageAble(PageAble pageAble) {
-		Pageable page = PageRequest.of(pageAble.getPage(), pageAble.getSize());
+		Sort sort = Sort.by("id").descending();
+		Pageable page = PageRequest.of(pageAble.getPage(), pageAble.getSize(), sort);
 		Page<Product> products = productRepository.findAll(page);
 		return products;
 	}

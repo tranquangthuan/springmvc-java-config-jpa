@@ -45,32 +45,10 @@ public class Product {
 	@JoinColumn(name = "category_id", referencedColumnName = "id")
 	private Category category;
 
+	private String fileName;
+
 	public Product() {
 		super();
-	}
-
-	public Product(String name, int quantity) {
-		super();
-		this.name = name;
-		this.quantity = quantity;
-	}
-
-	public Product(String name, int quantity, Category category) {
-		super();
-		this.name = name;
-		this.quantity = quantity;
-		this.category = category;
-	}
-
-	public Product(@NotBlank(message = "please input name") String name,
-			@Range(min = 1, max = 1000, message = "Nhập quantity trong khoảng 1 - 1000") int quantity,
-			LocalDate ngaySanXuat, LocalTime gioSanXuat, Category category) {
-		super();
-		this.name = name;
-		this.quantity = quantity;
-		this.ngaySanXuat = ngaySanXuat;
-		this.gioSanXuat = gioSanXuat;
-		this.category = category;
 	}
 
 	public Product(@NotBlank(message = "please input name") String name,
@@ -83,6 +61,19 @@ public class Product {
 		this.gioSanXuat = gioSanXuat;
 		this.serial = serial;
 		this.category = category;
+	}
+
+	public Product(@NotBlank(message = "please input name") String name,
+			@Range(min = 1, max = 1000, message = "Nhập quantity trong khoảng 1 - 1000") int quantity,
+			LocalDate ngaySanXuat, LocalTime gioSanXuat, String serial, Category category, String fileName) {
+		super();
+		this.name = name;
+		this.quantity = quantity;
+		this.ngaySanXuat = ngaySanXuat;
+		this.gioSanXuat = gioSanXuat;
+		this.serial = serial;
+		this.category = category;
+		this.fileName = fileName;
 	}
 
 	public long getId() {
@@ -139,6 +130,14 @@ public class Product {
 
 	public void setSerial(String serial) {
 		this.serial = serial;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	@Override

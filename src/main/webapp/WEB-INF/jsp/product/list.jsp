@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -73,6 +75,7 @@ td {
 					<th>Gio San Xuat</th>
 					<th>Category</th>
 					<th>Serial</th>
+					<th>Image</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -86,6 +89,9 @@ td {
 						<td>${product.gioSanXuat}</td>
 						<td>${product.category.name}</td>
 						<td>${product.serial}</td>
+						<td><img
+							src="${pageContext.request.contextPath}/image/${product.fileName}"
+							height="50" width="50"></td>
 						<td><a href="delete?id=${product.id}">Delete</a> <a
 							href="update/${product.id}">Update</a></td>
 					</tr>

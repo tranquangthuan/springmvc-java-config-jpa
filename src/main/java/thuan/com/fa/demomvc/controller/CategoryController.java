@@ -1,5 +1,7 @@
 package thuan.com.fa.demomvc.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import thuan.com.fa.demomvc.entity.Category;
+import thuan.com.fa.demomvc.entity.Product;
 import thuan.com.fa.demomvc.page.PageAble;
 import thuan.com.fa.demomvc.service.CategoryServiceImpl;
 

@@ -15,7 +15,6 @@ public class ImageController {
 
 	@GetMapping("/{imageName:.+}")
 	public byte[] getImage(@PathVariable(name = "imageName") String imageName) throws IOException {
-		System.out.println(imageName);
 		byte[] image = FilleUtils.getImage(imageName);
 		return image;
 	}

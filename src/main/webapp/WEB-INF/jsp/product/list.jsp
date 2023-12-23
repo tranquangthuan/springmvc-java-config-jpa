@@ -91,7 +91,7 @@ td {
 						<td>${product.serial}</td>
 						<td><img
 							src="${pageContext.request.contextPath}/image/${product.fileName}"
-							height="50" width="50"></td>
+							height="60" width="60"></td>
 						<td><a href="delete?id=${product.id}">Delete</a> <a
 							href="update/${product.id}">Update</a></td>
 					</tr>

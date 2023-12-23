@@ -17,8 +17,13 @@ public class FilleUtils {
 		return fileName;
 	}
 
-	public static byte[] getImage(String imageName) throws IOException {
+	public static byte[] getImage(String imageName) {
 		File file = new File(PATH_FILE + "/" + imageName);
-		return Files.readAllBytes(file.toPath());
+		try {
+			return Files.readAllBytes(file.toPath());
+		} catch (IOException e) {
+			System.out.println("File not found " + e.getMessage());
+		}
+		return null;
 	}
 }

@@ -42,7 +42,6 @@ public class ProductController {
 		model.addAttribute("products", products.getContent());
 		model.addAttribute("totalPages", products.getTotalPages());
 		model.addAttribute("currentPage", page);
-		model.addAttribute("pathFile", FilleUtils.PATH_FILE);
 
 		return "/product/list";
 	}

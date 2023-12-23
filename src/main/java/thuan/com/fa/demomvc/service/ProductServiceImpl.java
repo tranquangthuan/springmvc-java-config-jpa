@@ -8,12 +8,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import thuan.com.fa.demomvc.entity.Product;
 import thuan.com.fa.demomvc.page.PageAble;
 import thuan.com.fa.demomvc.repository.ProductRepositoryImpl;
 
 @Service
+@Transactional
 public class ProductServiceImpl {
 
 	@Autowired
